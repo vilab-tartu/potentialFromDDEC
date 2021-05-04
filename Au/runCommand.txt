@@ -1,0 +1,1 @@
+python potentialFromDDEC.py -i Au6433-66_DDEC6_even_tempered_net_atomic_charges.xyz -b 0.1 -s 0 -e 36 -N 2 -area 30
