@@ -15,12 +15,12 @@ A script that calculates the potential drop, dipole correction and creates figur
 
 ##### Windows:
 ```
-python potentialFromDDEC.py -i DDEC6_even_tempered_net_atomic_charges.xyz -b 0.1 -s 0 -e 448 -N 2 > output.txt
+python potentialFromDDEC.py -i DDEC6_even_tempered_net_atomic_charges.xyz -b 0.1 -s 0 -e 448 -N 2
 ```
 
 ##### Linux:
 ```
-python potentialFromDDEC.py -i DDEC6_even_tempered_net_atomic_charges.xyz -b 0.1 -s 0 -e 448 -N 2 > output.txt
+python potentialFromDDEC.py -i DDEC6_even_tempered_net_atomic_charges.xyz -b 0.1 -s 0 -e 448 -N 2
 ```
 
 #### OUTPUT OF EXAMPLE DDEC RESULTS
