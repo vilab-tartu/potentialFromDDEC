@@ -8,6 +8,7 @@ A script that calculates the potential drop, dipole correction and creates figur
 * -s - The index of first electrode atom .xyz coordinates
 * -e - The index of last electrode atom .xyz coordinates
 * -N - Sigma value for Gaussian filter
+* -area - Electrode area [Angs2] (If not given, the electrode area is estimated as rectangle unit cell x * unit cell y)
 
 ### Example
 
