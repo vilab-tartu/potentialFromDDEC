@@ -3,12 +3,12 @@ A script that calculates the potential drop, dipole correction and creates figur
 
 ### Parameters
 
-*  -i - Input DDEC file for calculating.
+* -i - Input DDEC file for calculating.
 * -b - The bin size for z-axis creation [Angs]
 * -s - The index of first electrode atom .xyz coordinates
 * -e - The index of last electrode atom .xyz coordinates
 * -N - Sigma value for Gaussian filter
-* -area - Electrode area [Angs2] (If not given, the electrode area is estimated as rectangle unit cell x * unit cell y)
+* -a - Electrode area [Angs2] for the dipole correction (if not given, the electrode area is estimated as rectangle unit cell x * unit cell y)
 
 ### Example
 
@@ -25,6 +25,6 @@ Potential drop [V]: 1.8434295130861662 \
 Dipole correction [V]: 0.5710576676392137
 
 ##### (Created files)
-* potential.svg - Potential profile in z direction (without dipole correction)
-* chargeDens.svg - Charge density profile in z direction
-* data.csv - .csv file containing data to 
+* potential.png, potential.svg - potential profile in z direction (without dipole correction)
+* chargeDens.png, chargeDens.svg - charge density profile in z direction
+* data.csv - .csv file containing data
