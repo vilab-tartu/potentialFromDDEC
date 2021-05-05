@@ -53,14 +53,12 @@ def process_command_line(argv):
     # Optional args
     parser.add_argument('-s',
                         help="""The index of first electrode atom .xyz coordinates""")
-
     # Optional args
     parser.add_argument('-e',
                         help="""The index of last electrode atom .xyz coordinates""")
-
-    parser.add_argument('-area',
+    # Optional args
+    parser.add_argument('-a',
                         help="""Electrode area [Angs2]""")
-
     # Optional args
     parser.add_argument('-N',
                         help="""Sigma value for Gaussian filter""")
@@ -75,6 +73,7 @@ class test:
         self.b = binSize
         self.s = first
         self.e = last
+        self.a = area
         self.N = gaussianSigma
 
 """
@@ -195,7 +194,8 @@ def createFigure(xAxis, Values, gaussianSigma, xAxisName, valueAxisName, filenam
     ax.set_xlabel(xAxisName, fontsize=12)
     ax.set_ylabel(valueAxisName, fontsize=12)
 
-    f1.savefig(filename, format="svg" ,bbox_inches='tight')
+    f1.savefig(filename+".png", format="png" ,bbox_inches='tight')
+    f1.savefig(filename+".svg", format="svg" ,bbox_inches='tight')
 
 """
     Method for creating .csv file from data
@@ -235,12 +235,12 @@ zBinned, chargeDens = calculateChargeDensity(charges, unitCell, float(args.b))
 potential = calculatePotential(zBinned, chargeDens)[1]
 print("Potential drop [V]: " + str(potential[0] - np.mean(potential[-int(len(potential)/100):-1])))
 
-if args.area == None:
+if args.a == None:
     area = unitCell[0]*unitCell[1]
 else:
-    area = float(args.area)
+    area = float(args.a)
 
 print("Dipole correction [V]: " + str(calculateDipoleCorr(args, area, dipoles)))
-createFigure(zBinned, chargeDens, float(args.N), r"z [$\AA$]", r"$\rho$ [$e/\AA^3$]", "chargeDens.svg")
-createFigure(zBinned, potential, float(args.N), r"z [$\AA$]", r"$\phi$ [$V$]", "potential.svg")
-dataToCsv(zBinned, chargeDens, potential, "data.csv")
+createFigure(zBinned, chargeDens, float(args.N), r"z [$\AA$]", r"$\rho$ [$e/\AA^3$]", str(args.i)+"_chargeDens")
+createFigure(zBinned, potential, float(args.N), r"z [$\AA$]", r"$\phi$ [$V$]", str(args.i)+"_potential")
+dataToCsv(zBinned, chargeDens, potential, str(args.i)+"_data.csv")
